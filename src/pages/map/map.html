@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Mapa</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+<agm-map [latitude]="lat" [longitude]="lng" [mapTypeControl]="true" [zoom]="18" [streetViewControl]="false" [mapTypeId]="'satellite'">
+  <!--<agm-marker [latitude]="mi_lat" [longitude]="mi_lng"></agm-marker>-->
+  <agm-marker *ngFor="let position of positions" [latitude]="position.mi_lat" [longitude]="position.mi_lng"></agm-marker>
+</agm-map>
+
+{{lat}} {{lng}} {{error_message1}} <br>
+
+{{mi_lat}} {{mi_lng}} {{error_message2}}
+
+<p align="center">
+				<button ion-button color="primary" (click)="simular()">simular</button>
+			</p>
+
+</ion-content>
